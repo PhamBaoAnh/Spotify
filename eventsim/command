@@ -1,0 +1,46 @@
+docker exec -it broker bash
+
+kafka-topics --bootstrap-server broker:29092 --list
+
+
+kafka-topics --bootstrap-server broker:29092 --list
+
+kafka-console-producer --broker-list broker:29092 --topic eventsim_topic
+
+kafka-console-consumer --bootstrap-server broker:29092 --topic eventsim_topic --from-beginning
+
+
+docker network connect kafka_default spark-master
+docker network connect kafka_default spark-worker-1
+docker network connect kafka_default spark-worker-1
+
+
+docker run -it --rm --network kafka_spark-network events:1.0 `
+  -c examples/example-config.json `
+  --start-time "2025-08-25T17:00:00" `
+  --end-time "2025-08-26T17:00:00" `
+  --nusers 1000 `
+  --kafkaBrokerList broker:29092 `
+  --continuous
+
+docker build -t events:1.0 .
+
+docker run -it --rm --network kafka_spark-network events:1.0 `
+  -c examples/example-config.json `
+  --start-time "2025-08-26T00:00:00" `
+  --end-time "2025-08-26T01:00:00" `
+  --nusers 100 `
+  --kafkaBrokerList broker:29092
+
+
+docker exec -it broker kafka-console-consumer --bootstrap-server broker:29092 --topic listen_events --from-beginning --max-messages 5
+
+docker run -it --rm --network kafka_spark-network events:1.0 -c examples/example-config.json --start-time "2025-08-25T17:00:00" --end-time "2025-08-26T17:00:00" --nusers 1000 --kafkaBrokerList broker:29092 --continuous
+
+docker run -it --rm --network kafka_spark-network events:1.0 `
+  -c examples/example-config.json `
+  --start-time "2025-08-26T00:00:00" `
+  --end-time "2025-08-26T23:59:59" `
+  --nusers 150 `
+  --kafkaBrokerList broker:29092 `
+

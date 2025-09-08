@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  superset:
+    build: .
+    container_name: superset
+    ports:
+      - "8088:8088"
+    environment:
+      - SUPERSET_SECRET_KEY=${SUPERSET_SECRET_KEY:-your_very_secret_key}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_FIRSTNAME=${ADMIN_FIRSTNAME:-Superset}
+      - ADMIN_LASTNAME=${ADMIN_LASTNAME:-Admin}
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@example.com}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - SUPERSET_DATABASE_URI=postgresql+psycopg2://superset:superset@superset_db:5432/superset
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - superset_db
+      - redis
+    volumes:
+      - ./superset_home:/app/superset_home
+    command: >
+      bash -c "
+      superset db upgrade &&
+      superset init &&
+      superset fab create-admin --username $${ADMIN_USERNAME} --firstname $${ADMIN_FIRSTNAME} --lastname $${ADMIN_LASTNAME} --email $${ADMIN_EMAIL} --password $${ADMIN_PASSWORD} &&
+      superset run -h 0.0.0.0 -p 8088 --with-threads --reload --debugger
+      "
+
+  superset_db:
+    image: postgres:13
+    container_name: superset_db
+    environment:
+      POSTGRES_USER: superset
+      POSTGRES_PASSWORD: superset
+      POSTGRES_DB: superset
+    volumes:
+      - superset_db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6
+    container_name: superset_redis
+
+volumes:
+  superset_db_data:

@@ -1,0 +1,37 @@
+Gaz_zcta_national.txt → danh sách vùng ZIP Code ở Mỹ → để gán vị trí người dùng (fake location).
+
+listen_counts.txt.gz → thống kê số lần nghe nhạc của user (dùng để sinh phân phối tần suất nghe).
+
+songs_analysis.txt.gz → metadata phân tích bài hát (tempo, loudness, genre …).
+
+Top1000Surnames.csv → 1000 họ phổ biến nhất ở Mỹ → để giả lập tên người dùng.
+
+US.txt → dữ liệu địa lý về thành phố / bang.
+
+user agents.txt → danh sách User Agent (Chrome, Safari, Firefox, Mobile …) để giả lập loại device.
+
+yob1990.txt → dữ liệu tên trẻ sinh năm 1990 (từ SSA Mỹ) → để giả lập tên riêng.
+
+
+
+
+docker run -d `
+    --name million_events `
+    --network kafka_default `
+    events:1.0 `
+    -c "examples/example-config.json" `
+    --start-time $(Get-Date -Format "yyyy-MM-ddTHH:mm:ss") `
+    --end-time $((Get-Date).AddDays(1).ToString("yyyy-MM-ddTHH:mm:ss")) `
+    --nusers 20000 `
+    --kafkaBrokerList localhost:9092 `
+    --continuous
+
+
+cd spark_streaming
+docker exec -it spark-master bash
+/spark/bin/spark-submit /opt/test_connection/test.py
+
+
+/spark/bin/spark-submit \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 \
+  /opt/test_connection/test.py

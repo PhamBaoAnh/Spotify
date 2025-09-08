@@ -1,0 +1,18 @@
+ALTER TABLE default.page_view_events_staging
+MODIFY COLUMN firstName Nullable(String),
+MODIFY COLUMN lastName Nullable(String),
+MODIFY COLUMN city Nullable(String),
+MODIFY COLUMN state Nullable(String),
+MODIFY COLUMN userAgent Nullable(String),
+MODIFY COLUMN artist Nullable(String),
+MODIFY COLUMN song Nullable(String),
+MODIFY COLUMN page Nullable(String),
+MODIFY COLUMN auth Nullable(String),
+MODIFY COLUMN method Nullable(String),
+MODIFY COLUMN level Nullable(String),
+MODIFY COLUMN gender Nullable(String);
+
+
+
+
+docker-compose up --build -d

@@ -1,0 +1,7 @@
+docker network connect superset_default clickhouse
+docker exec -it superset ping clickhouse
+
+docker exec -it superset curl http://clickhouse:8123 
+
+- kết nối với superset
+clickhousedb+connect://default:@host.docker.internal:8123/streamify_prod

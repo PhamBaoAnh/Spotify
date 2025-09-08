@@ -1,0 +1,56 @@
+version: '3'
+services:
+  spark-master:
+    image: bde2020/spark-master:3.0.0-hadoop3.2
+    container_name: spark-master
+    hostname: spark-master
+    mem_limit: 4g           # tăng memory tối đa cho container
+    memswap_limit: 4g       # tránh swap quá thấp
+    healthcheck:
+      interval: 5s
+      retries: 100
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+    environment:
+      - INIT_DAEMON_STEP=setup_spark
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    volumes:
+      - ./test_connection:/opt/test_connection
+      - ./spark-data:/spark-data
+    networks:
+      - kafka_spark-network
+
+  spark-worker-1:
+    image: bde2020/spark-worker:3.0.0-hadoop3.2
+    container_name: spark-worker-1
+    hostname: spark-worker-1
+    mem_limit: 4g
+    memswap_limit: 4g
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - "8085:8085"
+    networks:
+      - kafka_spark-network
+
+  spark-worker-2:
+    image: bde2020/spark-worker:3.0.0-hadoop3.2
+    container_name: spark-worker-2
+    hostname: spark-worker-2
+    mem_limit: 4g
+    memswap_limit: 4g
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - "8083:8083"
+    networks:
+      - kafka_spark-network
+
+networks:
+  kafka_spark-network:
+    external: true

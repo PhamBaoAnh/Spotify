@@ -1,0 +1,41 @@
+PS C:\Users\msi\Desktop\Spotify> docker exec -it broker bash
+[appuser@broker ~]$ kafka-console-consumer \
+>   --topic yellow_taxi_ride_json \
+>   --bootstrap-server broker:29092 \
+>   --from-beginning
+
+hello kafka
+test message 1
+{"ride_id": 123, "pickup": "Manhattan", "dropoff": "JFK"}
+
+2
+pham bao anh
+
+
+
+PS C:\Users\msi\Desktop\Spotify> docker exec -it broker bash
+[appuser@broker ~]$ kafka-console-producer \
+>   --topic yellow_taxi_ride_json \
+>   --bootstrap-server broker:29092
+>hello kafka
+
+
+
+ docker exec -it broker bash
+
+kafka-console-consumer \
+  --topic yellow_taxi_ride_json \
+  --bootstrap-server broker:29092 \
+  --from-beginning
+
+
+
+docker run -it --rm `
+  --network kafka_default `
+  events:1.0 `
+  -c examples/example-config.json `
+  --start-time "$(Get-Date -Format 'yyyy-MM-ddTHH:mm:ss')" `
+  --end-time "2025-08-23T17:00:00" `
+  --nusers 20000 `
+  --kafkaBrokerList broker:29092 `
+  --continuous

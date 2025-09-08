@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: staging
+    database: default
+    schema: default
+    tables:
+      - name: listen_events_staging
+      - name: page_view_events_staging
+      - name: auth_events_staging
+      - name: songs_staging
+      - name: state_codes_staging

@@ -1,0 +1,22 @@
+# File cấu hình kết nối database
+streamify:
+  outputs:
+    dev:
+      type: clickhouse
+      schema: streamify_stg
+      host: clickhouse        # chính là service name trong docker-compose
+      port: 8123              # cổng HTTP
+      user: default
+      password: ""            # nếu có thì điền
+      secure: False
+      threads: 4
+    prod:
+      type: clickhouse
+      schema: streamify_prod
+      host: clickhouse
+      port: 8123
+      user: default
+      password: ""
+      secure: False
+      threads: 4
+  target: dev
