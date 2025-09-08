@@ -126,8 +126,11 @@ clickhousedb+connect://default:@host.docker.internal:8123/streamify_prod
 ### 📊  Workflow
 
 <img width="1457" height="710" alt="Image" src="https://github.com/user-attachments/assets/f801ea0f-c02c-4d2d-a8dd-93e454d34e6a" />
+
 ### 📊  Minio Storage
+
 <img width="1905" height="577" alt="Image" src="https://github.com/user-attachments/assets/64305aa8-ecdf-417d-bdaa-2030067273f3" />
 
 ### 📊  ClickHouse 
+
 <img width="1900" height="925" alt="Image" src="https://github.com/user-attachments/assets/d9b39be4-b203-45ff-8860-fcf7785e7407" />
