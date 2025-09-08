@@ -1,0 +1,96 @@
+{
+  "listen_events": [
+    {"name": "artist", "type": "object"},
+    {"name": "song", "type": "object"},
+    {"name": "duration", "type": "float64"},
+    {"name": "ts", "type": "datetime64[ns]"},
+    {"name": "sessionid", "type": "float64"},
+    {"name": "auth", "type": "object"},
+    {"name": "level", "type": "object"},
+    {"name": "itemInSession", "type": "int32"},
+    {"name": "city", "type": "object"},
+    {"name": "zip", "type": "float64"},
+    {"name": "state", "type": "object"},
+    {"name": "userAgent", "type": "object"},
+    {"name": "lon", "type": "float64"},
+    {"name": "lat", "type": "float64"},
+    {"name": "userId", "type": "int64"},
+    {"name": "lastName", "type": "object"},
+    {"name": "firstName", "type": "object"},
+    {"name": "gender", "type": "object"},
+    {"name": "registration", "type": "int64"}
+  ],
+    "page_view_events": [
+    {"name": "ts", "type": "datetime64[ns]"},
+    {"name": "sessionId", "type": "int32"},
+    {"name": "page", "type": "object", "nullable": true},
+    {"name": "auth", "type": "object", "nullable": true},
+    {"name": "method", "type": "object", "nullable": true},
+    {"name": "status", "type": "int32"},
+    {"name": "level", "type": "object", "nullable": true},
+    {"name": "itemInSession", "type": "int32"},
+    {"name": "city", "type": "object", "nullable": true},
+    {"name": "zip", "type": "float64", "nullable": true},
+    {"name": "state", "type": "object", "nullable": true},
+    {"name": "userAgent", "type": "object", "nullable": true},
+    {"name": "lon", "type": "float64", "nullable": true},
+    {"name": "lat", "type": "float64", "nullable": true},
+    {"name": "userId", "type": "int32", "nullable": true},
+    {"name": "lastName", "type": "object", "nullable": true},
+    {"name": "firstName", "type": "object", "nullable": true},
+    {"name": "gender", "type": "object", "nullable": true},
+    {"name": "registration", "type": "int64", "nullable": true},
+    {"name": "artist", "type": "object", "nullable": true},
+    {"name": "song", "type": "object", "nullable": true},
+    {"name": "duration", "type": "float64", "nullable": true}
+  ],
+
+    "auth_events": [
+    {"name": "ts", "type": "datetime64[ns]"},
+    {"name": "sessionId", "type": "int32"},
+    {"name": "level", "type": "object", "nullable": true},
+    {"name": "itemInSession", "type": "int32"},
+    {"name": "city", "type": "object", "nullable": true},
+    {"name": "zip", "type": "float64", "nullable": true},
+    {"name": "state", "type": "object", "nullable": true},
+    {"name": "userAgent", "type": "object", "nullable": true},
+    {"name": "lon", "type": "float64", "nullable": true},
+    {"name": "lat", "type": "float64", "nullable": true},
+    {"name": "userId", "type": "int32", "nullable": true},
+    {"name": "lastName", "type": "object", "nullable": true},
+    {"name": "firstName", "type": "object", "nullable": true},
+    {"name": "gender", "type": "object", "nullable": true},
+    {"name": "registration", "type": "int64", "nullable": true},
+    {"name": "success", "type": "bool", "nullable": true}
+
+  ],
+  "songs": [
+    {"name": "artist_id", "type": "String"},
+    {"name": "artist_latitude", "type": "Float64"},
+    {"name": "artist_location", "type": "String"},
+    {"name": "artist_longitude", "type": "Float64"},
+    {"name": "artist_name", "type": "String"},
+    {"name": "danceability", "type": "Float64"},
+    {"name": "duration", "type": "Float64"},
+    {"name": "energy", "type": "Float64"},
+    {"name": "key", "type": "Int64"},
+    {"name": "key_confidence", "type": "Float64"},
+    {"name": "loudness", "type": "Float64"},
+    {"name": "mode", "type": "Int64"},
+    {"name": "mode_confidence", "type": "Float64"},
+    {"name": "release", "type": "String"},
+    {"name": "song_hotttnesss", "type": "Float64"},
+    {"name": "song_id", "type": "String"},
+    {"name": "tempo", "type": "Float64"},
+    {"name": "title", "type": "String"},
+    {"name": "track_id", "type": "String"},
+    {"name": "year", "type": "Int64"}
+  ],
+
+  "state_codes": [
+    {"name": "stateCode", "type": "String"},
+    {"name": "stateName", "type": "String"}
+  
+  ]
+
+}

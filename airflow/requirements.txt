@@ -1,0 +1,11 @@
+pyarrow
+pandas
+sqlalchemy
+psycopg2-binary
+PyYAML>=6.0,<7
+boto3
+apache-airflow-providers-postgres
+dbt-postgres==1.7.3
+clickhouse-connect
+dbt-core==1.7.3
+dbt-clickhouse==1.7.0

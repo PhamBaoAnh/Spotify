@@ -1,0 +1,7 @@
+<yandex>
+  <http_server_default_response_headers>
+    <Access-Control-Allow-Origin>*</Access-Control-Allow-Origin>
+    <Access-Control-Allow-Methods>GET, POST, OPTIONS</Access-Control-Allow-Methods>
+    <Access-Control-Allow-Headers>origin, content-type, accept, authorization</Access-Control-Allow-Headers>
+  </http_server_default_response_headers>
+</yandex>
