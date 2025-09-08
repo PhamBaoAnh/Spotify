@@ -25,7 +25,6 @@ This project streams events generated from a fake music streaming service (simil
 [Eventsim](https://github.com/Interana/eventsim) is a program that generates event data to replicate page requests for a fake music web site. Eventsim uses song data from [Million Songs Dataset](http://millionsongdataset.com) to generate events. I have used a [subset](http://millionsongdataset.com/pages/getting-dataset/#subset) of 10000 songs
 ### Tools & Technologies
 
-- Infrastructure as Code - [**Terraform**](https://www.terraform.io)  
 - Containerization - [**Docker**](https://www.docker.com), [**Docker Compose**](https://docs.docker.com/compose/)  
 - Stream Processing - [**Kafka**](https://kafka.apache.org), [**Spark Streaming**](https://spark.apache.org/docs/latest/streaming-programming-guide.html)  
 - Orchestration - [**Airflow**](https://airflow.apache.org)  
