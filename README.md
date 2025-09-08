@@ -24,11 +24,11 @@ The project will stream events generated from a fake music streaming service (li
 
 ### Architecture
 
-![streamify-architecture](images/Streamify.png)
+![Image](https://github.com/user-attachments/assets/9f55ecb3-b3c8-40dd-8ccf-2343cdd99613)
 
 ### Final Result
 
-![dashboard](images/dashboard.png)
+![Image](https://github.com/user-attachments/assets/90e728a9-378b-45f5-a0ac-eae4caff2706)
 
 ## Setup
 
