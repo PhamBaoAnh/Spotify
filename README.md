@@ -60,7 +60,7 @@ After this, you can forward port 9021 to see kafka ui.
 
 docker build -t events:1.0 .
 ```
-To runthe eventsim container, run the following command:
+To run the eventsim container, run the following command:
 ```bash
 
 docker run -it --rm --network kafka_spark-network events:1.0 `
